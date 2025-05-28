@@ -7,12 +7,12 @@ export default function UpcomingAppointment() {
         <h2 style={{ padding: "10px" }}>Upcoming Appointments</h2>
       </div>
       {upcomingAppointments.map((appointment, index) => (
-        <>
+        <div key={index}>
           <h4 style={{ padding: "10px" }}>{appointment.day}</h4>
-          <div key={index} className="upcoming-appointment">
+          <div className="upcoming-appointment">
             {appointment.events.map((event, idx) => (
               <div
-                key={idx}
+                key={`${index}-${idx}`}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -35,7 +35,7 @@ export default function UpcomingAppointment() {
               </div>
             ))}
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

@@ -52,6 +52,7 @@ h4 {
 .container {
   display: flex;
   min-height: 100vh;
+  flex-wrap: wrap;
 }
 
 /* SIDEBAR CSS */
@@ -62,17 +63,17 @@ h4 {
   flex-direction: column;
   align-items: center;
   width: fit-content;
-  height: 100vh;
   padding: 20px 40px;
+  height: calc(100vh - 50px);
   box-shadow: var(--shadow-card);
-  border-radius: var(--border-radius-lg);
 }
 
 .sidebar-title {
+  background-color: var(--color-bg-sidebar);
   color: var(--color-activity-bar-filled);
   font-size: 24px;
   font-weight: 900;
-  margin-bottom: 20px;
+  padding: 20px 40px;
 }
 
 .sidebar-content-main {
@@ -171,6 +172,7 @@ li:hover {
 .anatomy-header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 10px;
 }
@@ -332,6 +334,7 @@ progress::-webkit-progress-bar {
   padding: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   min-width: 100px;
+  overflow: hidden;
 }
 
 .highlighted-day {
@@ -369,6 +372,8 @@ progress::-webkit-progress-bar {
 .appointment-card-container {
   width: fit-content;
   display: flex;
+  flex-wrap: wrap;
+  margin-block: 15px;
   padding: 10px;
   gap: 10px;
 }
@@ -400,4 +405,85 @@ progress::-webkit-progress-bar {
   color: var(--color-text-body);
   border-radius: 1rem;
   box-shadow: var(--shadow-card);
+}
+
+/* Media Queries  */
+
+@media (max-width: 1440px) {
+  .sidebar-container {
+    display: none;
+  }
+  .responsive-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-bg-sidebar);
+    z-index: 1;
+  }
+  .sidebar-title {
+    padding: 20px 0px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .responsive-header {
+    display: none;
+  }
+  .sidebar-container {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    font-size: small;
+    align-items: center;
+  }
+
+  .anatomy-container {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .upcoming-appointment {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .upcoming-appointment-card {
+    padding: 15px;
+    flex-wrap: wrap;
+    font-size: small;
+  }
+
+  .appointment-card-container {
+    flex-direction: column;
+    font-size: small;
+  }
+
+  .day-column {
+    max-width: 97%;
+    overflow: hidden;
+  }
+
+  .calendar-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dashboard-container,
+  .calendar-container,
+  .activity-container {
+    padding: 5px;
+  }
 }

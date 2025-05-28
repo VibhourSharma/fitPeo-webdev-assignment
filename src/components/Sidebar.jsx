@@ -8,12 +8,10 @@ import {
   MessageCircle as Chat,
   HelpCircle,
 } from "lucide-react";
-import Header from "./Header";
 
 export default function Sidebar() {
   return (
     <main className="sidebar-container">
-      <Header />
       <div className="sidebar-content-main">
         <div className="sidebar-general">
           <h3 className="sidebar-subtitle">General</h3>
