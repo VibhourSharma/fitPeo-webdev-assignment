@@ -1,4 +1,5 @@
 import HealthStatusCards from "./HealthStatusCards";
+import anatomyMain from "../assets/anatomyMain.png";
 
 export default function AnatomySection() {
   return (
@@ -8,7 +9,7 @@ export default function AnatomySection() {
       </div>
       <div className="anatomy-container">
         <div className="anatomy-main">
-          <img src="/src/assets/anatomy-main.png" alt="AnatomySection" />
+          <img src={anatomyMain} alt="humanAnatomy-image" />
         </div>
         <HealthStatusCards />
       </div>
